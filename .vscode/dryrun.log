@@ -1,0 +1,9 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/larback/Desktop/ILS-LKH-SSP'
+g++-11 -O3 -fopenmp -march=native -std=c++11 -o "KTNS" KTNS.h
+g++-11 -O3 -fopenmp -march=native -std=c++11 -o "delta_avaliacao" delta_avaliacao.h
+g++-11 -O3 -fopenmp -march=native -std=c++11 -o "Buscas" Buscas.h
+g++-11 -O3 -fopenmp -march=native -std=c++11 -o "samplecode" samplecode.cpp
+g++-11 -O3 -fopenmp -march=native -std=c++11 -o "run" run.cpp
+make: Leaving directory `/Users/larback/Desktop/ILS-LKH-SSP'
+ 
