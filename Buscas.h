@@ -217,6 +217,25 @@ void two_swap(std::vector<int> &solution, long &trocas){
 
 }
 
+std::vector<int> twoSwap_copilot(const std::vector<int>& initialSolution) {
+    std::vector<int> bestSolution = initialSolution;
+    int bestCost = KTNS(initialSolution);
+
+    for (size_t i = 0; i < initialSolution.size() - 1; ++i) {
+        for (size_t j = i + 1; j < initialSolution.size(); ++j) {
+            std::vector<int> newSolution = initialSolution;
+            std::swap(newSolution[i], newSolution[j]);
+            int newCost = KTNS(newSolution);
+
+            if ((!isTabu(newSolution,0)) && (newCost < bestCost) ){
+                bestSolution = newSolution;
+                bestCost = newCost;
+            }
+        }
+    }
+
+    return bestSolution;
+}
 
 void swap_blocks(std::vector<int> &solution, long &trocas){
 

@@ -40,13 +40,13 @@ int main(int argc, char* argv[]) {
 				std::string xF = nomeDir + "solucoes/TS_SOLUCAO_" + entrada->d_name + "_" + convert.str();
 				x = xF.c_str();
 				TFile = fopen(x, "r");
-				if (!TFile) { // Ignorar as instancias já executadas
+				// if (!TFile) { // Ignorar as instancias já executadas
 					std::string cmd = "./samplecode " + nomeDir + "solucoes/TS_SOLUCAO_" + entrada->d_name + "_" + convert.str() + " <" + nomeDir + entrada->d_name; + " >" + nomeDir + "solucoes/TS_SOLUCAO_"+entrada->d_name + "_" + convert.str();
 					const char *c = cmd.c_str();
 					int s = system(c);
-				} else {
-					std::cout << "já executado. " << std::endl;
-				}
+				// } else {
+					// std::cout << "já executado. " << std::endl;
+				// }
 			}
 		}
 	}
@@ -71,7 +71,7 @@ int main(int argc, char* argv[]) {
 				 file >> dado;
 				 file >> dado2;
                  file >> dado3;
-                //  file >> dado4;
+                 file >> dado4;
 				//  file >> dado5;
 				//  file >> dado6;
 				//  file >> dado7;
@@ -84,7 +84,7 @@ int main(int argc, char* argv[]) {
 				//  file >> dado14;
 				//  file >> dado15;
 				//  file >> dado16;	
-				 fileR << entrada->d_name << " " << dadoN << " " << dadoT << " " << dadoC << " " << dado << " " << dado2 << " " << dado3 << " " << std::endl; //<< dado4 << " ";
+				 fileR << entrada->d_name << " " << dadoN << " " << dadoT << " " << dadoC << " " << dado << " " << dado2 << " " << dado3 << " " << dado4 << " " << std::endl;
 				//  fileR << dado5 << " " << dado6 << " " << dado7 << " " << dado8 << " " ;
 				//  fileR << dado9 << " " << dado10 << " " << dado11 << " " << dado12 << " ";
 				//  fileR << dado13 << " " << dado14 << " " << dado15 << " " << dado16 << " " << std::endl;

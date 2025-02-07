@@ -180,13 +180,22 @@ int main(int argc, char* argv[]) {
 		tabu[0][idx_tabu] = hash_vector(corrente);
 		idx_tabu++;
 		tot_tabu++;
-		if (iteracoes==n){
-			cout << "Perturbei. Estava em " << vCorrente << endl;
-			double_bridge(corrente,vCorrente);
-			cout << "Ficou em " << vCorrente << endl;
+		if (iteracoes>2*n){
+			// cout << "Perturbei. Estava em " << vCorrente << endl;
+			// double_bridgeU(corrente,vCorrente);
+			// testar com o two_swap
+			corrente = twoSwap_copilot(corrente);
+			vCorrente = KTNS(corrente);
+			// cout << "Ficou em " << vCorrente << endl;
+
 			tabu[0][idx_tabu] = hash_vector(corrente);
 			idx_tabu++;
 			tot_tabu++;
+			if (vCorrente<vSolution){
+				vSolution = vCorrente;
+				solution = corrente;
+				iteracoes = 0;
+			}
 		}
 	}
 
@@ -197,7 +206,7 @@ int main(int argc, char* argv[]) {
 
 	fileSolution.open(argv[1]);
 	// Corrigir cabecalho da solucao
-	fileSolution << n << " " << t << " " <<  c << " " << vISolution << " " << vSolution << " " << time_span.count() << endl; 
+	fileSolution << n << " " << t << " " <<  c << " " << vISolution << " " << vSolution << " " << time_span.count() << " " << idx_inicial << endl; 
 	fileSolution.close();
 	
 	// cout << "Inicial: " << vISolution << " Final: " << vSolution << " Temp de execução: " << time_span.count() << " Solução inicial: " << idx_inicial << endl;
