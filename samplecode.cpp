@@ -45,7 +45,7 @@ std::vector<int>iSolution; // Solução inicial
 long vSolution; // Avaliação da melhor solução conhecida
 long vCorrente; // Avaliação da solução corrente
 long vISolution; // Avaliação da solução inicial
-const int tabu_size = 500;
+const int tabu_size = 1000;
 std::size_t tabu[2][tabu_size]; // no buscas está como constante
 int idx_tabu = 0;
 
@@ -132,6 +132,10 @@ int main(int argc, char* argv[]) {
 			}
 		}
 	}
+
+	US(iSolution,vISolution);
+	two_optFull(iSolution,vISolution);
+
 	solution = iSolution;
 	vSolution = vISolution;
 	vCorrente = vSolution;
@@ -181,22 +185,40 @@ int main(int argc, char* argv[]) {
 		idx_tabu++;
 		tot_tabu++;
 		if (iteracoes>2*n){
-			// cout << "Perturbei. Estava em " << vCorrente << endl;
-			// double_bridgeU(corrente,vCorrente);
-			// testar com o two_swap
-			corrente = twoSwap_copilot(corrente);
-			vCorrente = KTNS(corrente);
-			// cout << "Ficou em " << vCorrente << endl;
-
-			tabu[0][idx_tabu] = hash_vector(corrente);
-			idx_tabu++;
-			tot_tabu++;
+			cout << "2S: Estava em " << vCorrente << endl;
+			//corrente = twoSwap_copilot(corrente);
+			US(corrente,vCorrente);
+			//vCorrente = KTNS(corrente);
+			cout << "Ficou em " << vCorrente << endl;
+			if (tabu[0][idx_tabu-1]!=hash_vector(corrente)){
+				tabu[0][idx_tabu] = hash_vector(corrente);
+				idx_tabu++;
+				tot_tabu++;
+			}
 			if (vCorrente<vSolution){
 				vSolution = vCorrente;
 				solution = corrente;
 				iteracoes = 0;
 			}
 		}
+
+		// if (iteracoes>n){
+		// 	cout << "R: Estava em " << vCorrente << endl;
+		// 	US(corrente,vCorrente);	
+		// 	cout << "Ficou em " << vCorrente << endl;
+		// 	if (tabu[0][idx_tabu-1]!=hash_vector(corrente)){
+		// 		tabu[0][idx_tabu] = hash_vector(corrente);
+		// 		idx_tabu++;
+		// 		tot_tabu++;
+		// 	}
+		// 	if (vCorrente<vSolution){
+		// 		vSolution = vCorrente;
+		// 		solution = corrente;
+		// 		iteracoes = 0;
+		// 	}
+		// }
+
+		
 	}
 
 

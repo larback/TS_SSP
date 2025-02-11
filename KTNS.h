@@ -144,14 +144,5 @@ long KTNS(const vector<int>processos, bool debug=false) {
 	}
 	return trocas+c;
 }
-double completionTime(std::vector<unsigned> tProcessamento, std::vector<int >& tarefas){
-	extern unsigned tempoTroca;
-	double tPr = 0;
-	for (std::vector<int>::const_iterator i = tarefas.begin(); i!=tarefas.end(); ++i)
-		tPr+= tProcessamento[*i];
-	long nTrocas = KTNS(tarefas);
-	double tTrocas = nTrocas*tempoTroca;
-	return (tPr+tTrocas);
-}
 
 #endif

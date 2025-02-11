@@ -19,7 +19,7 @@
 extern std::vector < std::bitset <MAXBIT> > bitMatrix;
 extern std::vector<unsigned>tProcessamento;
 extern const int tabu_size;
-extern std::size_t tabu[2][500];
+extern std::size_t tabu[2][1000];
 extern int idx_tabu;
 
 
@@ -762,89 +762,6 @@ void double_bridge(std::vector<int> &solucao, long &trocas){
     }
   }
 }
-
-// void double_bridgeU(std::vector<int> &solucao, long &trocas){
-//   vector<int> order;
-//   vector<int> points,temp;
-//   long tempT;
-//   for (unsigned i = 0; i<solucao.size(); ++i)               
-//     order.push_back(i);
-//   random_shuffle(order.begin(),order.end());
-
-//   for (unsigned i =0; i< solucao.size()-3; ++i){
-//     points.clear();
-//     points.push_back(order[i]);
-//     points.push_back(order[i+1]);
-//     points.push_back(order[i+2]);
-//     sort(points.begin(),points.end());
-//     temp.clear();
-//     for (int i=points[2]+1;i<solucao.size();++i)
-//       temp.push_back(solucao[i]);
-    
-//     for (int i=points[1]+1;i<=points[2];++i)
-//       temp.push_back(solucao[i]);
-   
-//     for (int i=points[0]+1;i<=points[1];++i)
-//       temp.push_back(solucao[i]);
-    
-//     for (int i=0;i<=points[0];++i)
-//       temp.push_back(solucao[i]);
-
-//     // Sem nenhum critério de aceitação
-//     tempT = KTNS(temp);
-//     // if (tempT<=aceite){
-//       solucao.clear();
-//       solucao = temp;
-//       trocas = tempT;
-//       break;
-//     // }
-//   }
-// }
-
-
-// void double_bridgeU(std::vector<int> &solucao, long &trocas){
-//   vector<int> order;
-//   vector<int> points,temp;
-//   long tempT;
-//   for (unsigned i = 0; i<solucao.size(); ++i)               
-//     order.push_back(i);
-//   random_shuffle(order.begin(),order.end());
-
-//   for (unsigned i =0; i< solucao.size()-4; ++i){
-//     points.clear();
-//     points.push_back(order[i]);
-//     points.push_back(order[i+1]);
-//     points.push_back(order[i+2]);
-//     points.push_back(order[i+3]);
-
-//     sort(points.begin(),points.end());
-//     temp.clear();
-//     for (int i=0;i<=points[0];i++)
-//       temp.push_back(solucao[i]);
-
-//     for (int i=points[3]+1;i<solucao.size();++i)
-//       temp.push_back(solucao[i]);
-    
-//     for (int i=points[2]+1;i<=points[3];++i)
-//       temp.push_back(solucao[i]);
-   
-//     for (int i=points[1]+1;i<=points[2];++i)
-//       temp.push_back(solucao[i]);
-    
-//     for (int i=points[0]+1;i<=points[1];i++)
-//       temp.push_back(solucao[i]);
-    
-
-//     // Sem nenhum critério de aceitação
-//     tempT = KTNS(temp);
-//     // if (tempT<=aceite){
-//       solucao.clear();
-//       solucao = temp;
-//       trocas = tempT;
-//       break;
-//     // }
-//   }
-// }
 
 
 

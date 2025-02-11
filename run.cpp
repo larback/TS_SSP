@@ -41,7 +41,7 @@ int main(int argc, char* argv[]) {
 				x = xF.c_str();
 				TFile = fopen(x, "r");
 				// if (!TFile) { // Ignorar as instancias já executadas
-					std::string cmd = "./samplecode " + nomeDir + "solucoes/TS_SOLUCAO_" + entrada->d_name + "_" + convert.str() + " <" + nomeDir + entrada->d_name; + " >" + nomeDir + "solucoes/TS_SOLUCAO_"+entrada->d_name + "_" + convert.str();
+					std::string cmd = "./samplecode " + nomeDir + "solucoes/TS_SOLUCAO_" + entrada->d_name + "_" + convert.str() + " <" + nomeDir + entrada->d_name; // + " >" + nomeDir + "solucoes/TS_SOLUCAO_"+entrada->d_name + "_" + convert.str();
 					const char *c = cmd.c_str();
 					int s = system(c);
 				// } else {
